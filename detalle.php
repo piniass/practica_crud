@@ -75,7 +75,7 @@
 <body>
     <?php  
         include_once 'conexiones/claseConexionBD.php';
-        $id = $_GET["id"];
+        $id = $_GET["id"]; //Aqui creo la variable para pasarla por parámtro
 
         SESSION_START();
 
@@ -96,13 +96,15 @@
         <a href="../consulta.php" id="volver">Volver</a>
 
         <div class="escuderia-details">
-            <img src="../imagenes/<?php echo $escuderia['imagen'] ?>" alt='Logo de la Escudería' id="logo">
+            <img src="../imagenes/<?php echo $escuderia['imagen'] ?>" alt='Logo de la Escudería' id="logo"> 
+            <!-- Esta linea es importante porque al estar en la ruta escuderia tengo que ir hacia atras para poder imprimir la imagen almacenada enla carpeta imagenes -->
             <p>Código de Escudería: <?php echo $escuderia['codigo_escuderia'] ?></p>
             <p>Piloto Principal: <?php echo $escuderia['piloto_principal'] ?></p>
             <p>Nombre de Escudería: <?php echo $escuderia['nombre_escuderia'] ?></p>
             <p>Año de Creación: <?php echo $escuderia['año_creacion'] ?></p>
             <p>Piloto Principal: <?php echo $escuderia['piloto_principal'] ?></p>
             <img src="data:image/jpeg;base64,<?php echo base64_encode($escuderia['imagen2']) ?>" height="50px" id="coche">
+            <!-- Aqui estoy imprimiendo la imagen binaria, para ello la descodifico -->
             <br>
             <a href="../imagenes/<?php echo $escuderia['imagen'] ?>" download="<?php echo $escuderia['imagen'] ?>" id="descarga">Descargar logo de la escuderia</a>
         </div>

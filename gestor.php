@@ -11,53 +11,53 @@
             padding:0;
             margin:0;
         }
-html,body{
-    height: 100%;
-}
+        html,body{
+            height: 100%;
+        }
 
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    display: flex;
-    flex-direction:column;
-    gap:20px;
-    align-items: center;
-    justify-content: center;
-    background-color:#ececdd;
-}
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            display: flex;
+            flex-direction:column;
+            gap:20px;
+            align-items: center;
+            justify-content: center;
+            background-color:#ececdd;
+        }
 
-.panel-container{
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0px 10px 13px -7px #000000, 0px 9px 11px 3px rgba(0,0,0,0.42);
-    border-radius: 5px;
-    padding:15px;
+        .panel-container{
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0px 10px 13px -7px #000000, 0px 9px 11px 3px rgba(0,0,0,0.42);
+            border-radius: 5px;
+            padding:15px;
 
-}
+        }
 
-a {
-    width:400px;
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    text-decoration: none;
-    background-color: #c0d23e;
-    color: black;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 10px;
-    transition: background-color 0.3s;
-}
+        a {
+            width:400px;
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            background-color: #c0d23e;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+            transition: background-color 0.3s;
+        }
 
-a:hover {
-    background-color: #cffd89;
-}
+        a:hover {
+            background-color: #cffd89;
+        }
     </style>
 </head>
 <body>

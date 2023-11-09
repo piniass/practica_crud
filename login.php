@@ -33,7 +33,6 @@
             if(!empty($_REQUEST['usuario']) && !empty($_REQUEST['pwd'])){
                 $nombre = $_REQUEST['usuario'];
                 $pwd = sha1($_REQUEST['pwd']);
-                // $rol =$_REQUEST['rol'];
                 $BD = new ConectarBD();
                 $conn = $BD->getConexion();
                
@@ -49,9 +48,11 @@
 
                 while ( $login = $stmt->fetch() ) {
                     $rol = $login['rol'];
+                    //Aqui me guardo la variable rol
                 }
 
                 $numero_registro=$stmt->rowCount();
+                //El count me va a contar cuantas veces aparece la select previamente hecha, si es mayor que 0, es decir, 1, entra al loggin.
                 
                 if($numero_registro > 0){
                     SESSION_START();

@@ -104,7 +104,7 @@
          if($_SESSION['rol'] != 'admin'){
             header('location: error.php');
          }
-
+         //Aqui si no eres rol de administrador no entras y te lleva a error.php
          
     ?>
     <a href="gestor.php">Volver al Panel de Control</a>
@@ -150,6 +150,7 @@
                   else{
                     $err = "No se ha podido subir el fichero<br/>";
                   }
+                //Subir archivo blob
                 if (is_uploaded_file($_FILES["imagen2"]["tmp_name"])){
                         $nombreDirectorio2 = "imagenes/";  // Directorio destino donde subir el archivo 
                         $nombreFichero2 = $_FILES['imagen2']['name'];
@@ -161,10 +162,10 @@
                     $fp = fopen($imgblob, 'rb');
 
                     $BD = new ConectarBD();
-                     $conn = $BD->getConexion();
-                     $stmt = $conn->prepare('INSERT INTO escuderias (nombre_escuderia, año_creacion, imagen, imagen2, piloto_principal) ' . 'VALUES (:nombre, :anio, :imagen1, :imagen2, :piloto)');
+                    $conn = $BD->getConexion();
+                    $stmt = $conn->prepare('INSERT INTO escuderias (nombre_escuderia, año_creacion, imagen, imagen2, piloto_principal) ' . 'VALUES (:nombre, :anio, :imagen1, :imagen2, :piloto)');
 
-                     try {
+                    try {
 
                         $stmt->bindParam(':nombre', $_POST['nombre']);
                         $stmt->bindParam(':anio', $_POST['anio']);
@@ -174,17 +175,17 @@
 
                         $stmt->execute();
                         fclose($fp);
-                         if ($stmt->rowCount() > 0) {
+                        if ($stmt->rowCount() > 0) {
                              // Insertado exitosamente
-                             echo '<p>Fila insertada correctamente!</p>';
-                         }
-                     } 
-                     catch (PDOException $ex) {
-                         print "¡Error!: " . $ex->getMessage() . "<br/>";
-                         die();
+                            echo '<p>Fila insertada correctamente!</p>';
+                        }
+                    } 
+                    catch (PDOException $ex) {
+                        print "¡Error!: " . $ex->getMessage() . "<br/>";
+                        die();
                     }
 
-                     $BD->cerrarConexion();
+                    $BD->cerrarConexion();
                 echo "bien";
             }
         } 
@@ -202,7 +203,7 @@
         ?>
         <script>
             document.getElementById('imagen1').onchange = function() {
-            var reader = new FileReader(); //instanciamos el objeto de laapiFileReader
+            var reader = new FileReader(); //Creamos el objeto de la apiFileReader
             reader.onload = function(e) {
             //en el evento onload del FileReader, asignamos la ruta a el srcdelelemento imagen de html
             document.getElementById("foto").src = e.target.result;

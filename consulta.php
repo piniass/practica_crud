@@ -97,7 +97,6 @@
     session_start();
     if(!isset($_SESSION['nombre'])){
         header('location:login.php');
-        exit(); 
     }
 
     $BD = new ConectarBD();
@@ -113,8 +112,10 @@
             while ($escuderia = $stmt->fetch()) {
                 echo "<div class='card'>";
                 echo "<img src='imagenes/{$escuderia['imagen']}' alt='Logo de la Escudería'>";
+                 //Aqui imprimo la ruta de la imagen almacenada como varchar
                 echo "<h3>{$escuderia['nombre_escuderia']}</h3>";
                 echo "<a href='escuderia/" . $escuderia["codigo_escuderia"] . "'>Ver más detalles</a>"; ?>
+                <!-- Aqui uso una ruta amigable y le paso por parámetro el código de escuderia -->
                 <?php echo "</div>";
             }
             ?>
